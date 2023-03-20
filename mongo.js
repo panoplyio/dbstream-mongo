@@ -270,7 +270,7 @@ function toObjectID( id ) {
     }
 
     if ( typeof id == 'string' && id.length == 24 && mongodb.ObjectId.isValid( id ) ) {
-        return mongodb.ObjectId( id );
+        return new mongodb.ObjectId( id );
     } else {
         return id;
     }
