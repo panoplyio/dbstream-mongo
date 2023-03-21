@@ -11,6 +11,18 @@ var connect = mongodb.MongoClient.connect;
 var options = { collection: "test", _closeTimeOut: 1 };
 var addr = "mongodb://127.0.0.1:27017/test1";
 
+describe ("fromObjectID and toObjectID", function () {
+    it("fromObjectID should succeed for every ObjectId", function () {
+        assert.doesNotThrow(() => db.fromObjectID('12345678'))
+        assert.doesNotThrow(() => db.fromObjectID('123456788f470af6bcfdeb2e'))
+    })
+
+    it("toObjectID should succeed for every ObjectId", function () {
+        assert.doesNotThrow(() => db.toObjectID('12345678'))
+        assert.doesNotThrow(() => db.toObjectID('123456788f470af6bcfdeb2e'))
+    })
+})
+
 describe( "Mongo", function() {
 
     beforeEach( function () {
